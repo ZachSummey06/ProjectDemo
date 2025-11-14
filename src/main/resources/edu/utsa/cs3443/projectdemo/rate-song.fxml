@@ -1,1 +1,61 @@
-<!-- TEST123 -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.utsa.cs3443.projectdemo.RatingController">
+
+    <!-- Top Section: Title -->
+    <top>
+        <VBox alignment="CENTER" spacing="10" styleClass="header">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+            <Label text="Song Rating Manager" styleClass="title">
+                <font>
+                    <Font name="System Bold" size="28"/>
+                </font>
+            </Label>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- Center Section: Rating Form and Table -->
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+
+            <!-- Add Rating Form -->
+            <VBox spacing="15" styleClass="form-section">
+                <Label text="Add New Rating">
+                    <font>
+                        <Font name="System Bold" size="18"/>
+                    </font>
+                </Label>
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="100" prefWidth="120"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="usernameField" promptText="Enter username"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Song Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="songNameField" promptText="Enter song name"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Album Name:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="albumNameField" promptText="Enter album name"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Artist Name:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="artistNameField" promptText="Enter artist name"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
