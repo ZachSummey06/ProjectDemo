@@ -1,9 +1,15 @@
 package edu.utsa.cs3443.projectdemo;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+
 import java.io.IOException;
 
 public class RowdyRythemesController {
@@ -40,6 +46,14 @@ public class RowdyRythemesController {
             System.out.println("Login successful! Welcome, "  + foundUser.getFirstName());
         }
 
+    }
+
+    @FXML
+    void goToSignUp(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("SignUpScreen.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 }

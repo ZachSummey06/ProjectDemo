@@ -37,7 +37,7 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="signUpButton" mnemonicParsing="false" text="Sign Up" />
+            <Button fx:id="signUpButton" mnemonicParsing="false" text="Sign Up" onAction="#goToSignUp" />
          </children>
       </HBox>
    </children>
