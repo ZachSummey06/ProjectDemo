@@ -42,7 +42,7 @@
             <Label text="Listen List:"/>
 
             <!-- listen list -->
-            <ListView fx:id="listeningListView"
+            <ListView fx:id="ListenListView"
                       prefWidth="300"
                       prefHeight="200"/>
         </VBox>
