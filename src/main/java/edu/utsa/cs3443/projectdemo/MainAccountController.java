@@ -1,10 +1,14 @@
 package edu.utsa.cs3443.projectdemo;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class MainAccountController {
 
@@ -28,6 +32,21 @@ public class MainAccountController {
 
     @FXML
     private ListView<String> listeningListView;
+    @FXML
+    private void handleRateSong() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("rate-song.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Rate a Song");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void loadDemoUser(String first, String last, String username, String password) {
 
@@ -58,5 +77,6 @@ public class MainAccountController {
         } catch (Exception e) {
             System.out.println("No image found.");
         }
+
     }
 }

@@ -38,16 +38,40 @@ public class RowdyRythemesController {
         String username = usernameTextField.getText().trim();
         String password = passwordTextField.getText().trim();
 
-        if(username.isEmpty() || password.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty()) {
             System.out.println("Username and password are empty");
+            return;
         }
+
         User foundUser = userManager.findUser(username, password);
-        if(foundUser != null) {
-            System.out.println("Login successful! Welcome, "  + foundUser.getFirstName());
+
+        if (foundUser != null) {
+            System.out.println("Login successful! Welcome, " + foundUser.getFirstName());
+
+            // Load MainAccount.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainAccount.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller so we can pass user data
+            MainAccountController controller = loader.getController();
+
+            // Pass information to the controller
+            controller.loadDemoUser(
+                    foundUser.getFirstName(),
+                    foundUser.getLastName(),
+                    foundUser.getUsername(),
+                    foundUser.getPassword()
+            );
+
+            // Switch scene
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
-
+        else {
+            System.out.println("Invalid username or password.");
+        }
     }
-
     @FXML
     void goToSignUp(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("SignUpScreen.fxml"));
