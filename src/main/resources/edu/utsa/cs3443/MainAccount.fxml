@@ -41,11 +41,10 @@
             <!-- listen list title -->
             <Label text="Listen List:"/>
 
-            <!-- listen liist -->
-            <ListView fx:id="listenListView"
+            <!-- listen list -->
+            <ListView fx:id="listeningListView"
                       prefWidth="300"
                       prefHeight="200"/>
-
         </VBox>
     </center>
 
